@@ -1,3 +1,5 @@
+import javax.persistence.*;
+
 @Entity
 public class Jogo {
     @Id
