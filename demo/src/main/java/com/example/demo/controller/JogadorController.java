@@ -1,9 +1,20 @@
 @RestController
-@RequestMapping("/jogadores")
+@RequestMapping("/api/jogadores")
 public class JogadorController {
 
     @Autowired
     private JogadorService jogadorService;
 
-    // Métodos semelhantes aos do JogoController
+    @GetMapping
+    public List<Jogador> getAllJogadores() {
+        return jogadorService.getAllJogadores();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Jogador> getJogadorById(@PathVariable Long id) {
+        Jogador jogador = jogadorService.getJogadorById(id);
+        return ResponseEntity.ok(jogador);
+    }
+
+    // outros métodos como createJogador, updateJogador, deleteJogador, etc.
 }
